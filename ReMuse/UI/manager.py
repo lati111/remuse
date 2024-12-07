@@ -1,5 +1,5 @@
 import dearpygui.dearpygui as dpg
-from UI import home, playlists
+from ReMuse.UI import home, playlists
 
 class UIManager:
     currentUI = None;

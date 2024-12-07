@@ -1,5 +1,5 @@
 import dearpygui.dearpygui as dpg
-from UI import base
+from ReMuse.UI import base
 
 class HomeUI(base.BaseUI):
     tag = "home_window"

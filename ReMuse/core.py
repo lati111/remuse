@@ -1,5 +1,5 @@
 import dearpygui.dearpygui as dpg
-from UI import manager
+from ReMuse.UI import manager
 
 class Core:
     UI = None
@@ -8,4 +8,3 @@ class Core:
         self.UI = manager.UIManager()
         self.UI.openHomeWindow()
 
-core = Core()
