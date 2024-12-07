@@ -1,5 +1,5 @@
 import dearpygui.dearpygui as dpg
-from UI import home
+from UI import home, playlists
 
 class UIManager:
     currentUI = None;
@@ -10,11 +10,18 @@ class UIManager:
         dpg.setup_dearpygui()
         dpg.show_viewport()
 
-    def openHome(self):
-        self.currentUI = home.HomeUI()
-        self.displayWindow()
+    def openHomeWindow(self):
+        self.switchWindows(home.HomeUI(self))
 
-    def displayWindow(self):
-        dpg.set_primary_window(self.currentUI.tag, True)
+    def openPlaylistWindow(self):
+        self.switchWindows(playlists.PlaylistUI(self))
+
+    def switchWindows(self, newUI):
+        if (self.currentUI != None):
+            dpg.delete_item(self.currentUI.tag)
+
+        self.currentUI = newUI
+        dpg.set_primary_window(newUI.tag, True)
         dpg.start_dearpygui()
         dpg.destroy_context()
+        
